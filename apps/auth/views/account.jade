@@ -1,0 +1,33 @@
+extends ../../../views/layout
+
+block content
+  h2= user
+  p
+    | Thanks for signing in 
+    = user
+    | Please verify that
+    = email 
+    | is your preferred email address
+    
+  a(class='logout', href='/sessions') Logout
+  
+  script(src='/javascripts/jquery.js')
+  script
+    $(function(){
+      console.log("DOM Loaded");
+      $('.logout').click(function(evt){
+        evt.preventDefault();
+        $.ajax({
+          url: '/sessions',
+          type: 'delete'
+        })
+        .done(function(){
+          console.log("Logged Out");
+          location = "/";
+        })
+        .fail(function(){
+          console.log("Couldn't log out");
+        });
+      });
+    });
+    

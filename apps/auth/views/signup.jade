@@ -1,0 +1,13 @@
+extends ../../../views/layout
+
+block content
+  form(action="/users", method="post")
+    label Username
+      input(type="text", name="username")
+    label Password
+      input(type="password", name="password")
+    label Email
+      input(type="email", name="email")
+    label Birthday (MM/DD/YYYY)
+      input(type="date", name="birthday")
+    input(type="submit", value="SignUp")

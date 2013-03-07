@@ -1,0 +1,19 @@
+extends ../../../views/layout
+
+block content
+
+  h1 Welcome to the Let's Meet site
+    p Hope you enjoy your stay
+  .row-fluid
+    .span6
+    .span6
+      span.auth 
+        | Please login or
+        a(href="/signup") SignUp
+      form(action="/sessions", method="post")
+        label Username
+          input(type="text", name="username")
+        label Password
+          input(type="password", name="password")
+        input(type="submit", value="Login")
+  
