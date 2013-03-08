@@ -18,7 +18,8 @@
     "stylus": "~0.32.0",
     "qs": "~0.5.3",
     "socket.io": "~0.9.13",
-    "connect-flash": "~0.1.0"
+    "connect-flash": "~0.1.0",
+    "mongoose": "~3.5.7"
   },
   "devDependencies": {
     "node-dev": "~0.2.4",

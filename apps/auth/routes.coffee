@@ -1,3 +1,5 @@
+User = require '../../models/user'
+
 module.exports = (app) ->
   
   app.get "/", (req, res) ->
@@ -26,7 +28,12 @@ module.exports = (app) ->
   app.post "/users", (req, res) ->
     console.log " Signing Up A New User", req.body
     # Install MongoDB and Mongoose
-    res.redirect "/"
+    newUser = new User req.body
+    newUser.save (err, user) ->
+      if err
+        console.log "Error saving the user"
+      else
+        res.redirect "/"
     
   app.get "/users/:user", (req, res) ->
     unless req.session.user

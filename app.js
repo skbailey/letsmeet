@@ -1,3 +1,4 @@
+// Use coffee script when the app starts up
 require('coffee-script');
 
 /**
@@ -7,8 +8,11 @@ require('coffee-script');
 var express = require('express'), 
     RedisStore = require('connect-redis')(express),
     http = require('http'), 
+    mongoose = require('mongoose'),
     path = require('path');
 
+// connect to Mongo when the app initializes
+mongoose.connect('mongodb://localhost/users');
 var app = express();
 
 app.configure(function(){
